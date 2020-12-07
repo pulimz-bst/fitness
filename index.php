@@ -1,3 +1,4 @@
+<?php session_start(); ?> 
 <?php include('./view/include/_header.php');?> 
 <?php include('./view/include/_navbar.php');?>
  
