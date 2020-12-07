@@ -6,7 +6,7 @@
         <h1 class="h2">Dashboard</h1> 
       </div>  
       <canvas class="my-4 w-100 chartjs-render-monitor" id="myChart" width="1170" height="494" style="display: block; width: 1170px; height: 494px;"></canvas> 
-      <h2>Section title</h2>
+      <h2>Activity</h2>
       <div class="table-responsive">
         <table class="table table-striped table-sm">
           <thead>

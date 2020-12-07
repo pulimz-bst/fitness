@@ -11,7 +11,7 @@
                 </a>
             </li>
             <li class="nav-item">
-                <a class="nav-link <?php echo ($_SESSION['page'] == 'users' || $_SESSION['page'] == 'add_user'  )?'active':''?>" href="<?php echo $config['base_url']?>/controller/route.php?route=users">
+                <a class="nav-link <?php echo ($_SESSION['page'] == 'users' || $_SESSION['page'] == 'add_user'  || $_SESSION['page'] == 'edit_user'  )?'active':''?>" href="<?php echo $config['base_url']?>/controller/route.php?route=users">
                     <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-users">
                         <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path>
                         <circle cx="9" cy="7" r="4"></circle>
@@ -22,13 +22,13 @@
                 </a>
             </li>
             <li class="nav-item">
-                <a class="nav-link <?php echo ($_SESSION['page'] == 'report')?'active':''?> " href="<?php echo $config['base_url']?>/controller/route.php?route=report">
+                <a class="nav-link <?php echo ($_SESSION['page'] == 'activities' || $_SESSION['page'] == 'lookup_activity' || $_SESSION['page'] == 'set_workout' || $_SESSION['page'] == 'edit_activity'  )?'active':''?> " href="<?php echo $config['base_url']?>/controller/route.php?route=activities">
                     <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-bar-chart-2">
                         <line x1="18" y1="20" x2="18" y2="10"></line>
                         <line x1="12" y1="20" x2="12" y2="4"></line>
                         <line x1="6" y1="20" x2="6" y2="14"></line>
                     </svg>
-                    Reports
+                    Activities
                 </a>
             </li>
         </ul>

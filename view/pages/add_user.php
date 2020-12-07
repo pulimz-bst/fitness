@@ -1,15 +1,7 @@
 <div class="container-fluid">
     <div class="row">
         <?php include('./view/include/_navbar_admin.php'); ?>
-        <main role="main" class="col-md-9 ml-sm-auto col-lg-10 px-4">
-            <div class="chartjs-size-monitor" style="position: absolute; inset: 0px; overflow: hidden; pointer-events: none; visibility: hidden; z-index: -1;">
-                <div class="chartjs-size-monitor-expand" style="position:absolute;left:0;top:0;right:0;bottom:0;overflow:hidden;pointer-events:none;visibility:hidden;z-index:-1;">
-                    <div style="position:absolute;width:1000000px;height:1000000px;left:0;top:0"></div>
-                </div>
-                <div class="chartjs-size-monitor-shrink" style="position:absolute;left:0;top:0;right:0;bottom:0;overflow:hidden;pointer-events:none;visibility:hidden;z-index:-1;">
-                    <div style="position:absolute;width:200%;height:200%;left:0; top:0"></div>
-                </div>
-            </div>
+        <main role="main" class="col-md-9 ml-sm-auto col-lg-10 px-4"> 
             <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
                 <h1 class="h2">Add user</h1>
                 <div class="btn-toolbar mb-2 mb-md-0">
@@ -21,35 +13,49 @@
                 </div>
             </div>
             <div class="">
-                <form>
+                <form action="<?php echo $config['base_url']?>/controller/adduser_post.php" method="POST">
                     <div class="row">
                         <div class="col-md-6 mb-3">
-                            <label for="firstName">First name</label>
-                            <input type="text" class="form-control" id="firstName" placeholder="" value="" required="">
+                            <label for="firstName">First name<span class="text-muted">*</span></label>
+                            <input type="text" class="form-control" name="firstname" placeholder="" value="111" required="">
                         </div>
                         <div class="col-md-6 mb-3">
                             <label for="lastName">Last name</label>
-                            <input type="text" class="form-control" id="lastName" placeholder="" value="" required="">
+                            <input type="text" class="form-control" name="lastname" placeholder="" value="222">
                         </div>
                     </div>
                     <div class="row">
                         <div class="col-md-12 mb-3">
-                            <label for="email">Email <span class="text-muted">*</span></label>
-                            <input type="email" class="form-control" id="email" placeholder="you@example.com">
+                            <label for="email">Email<span class="text-muted">*</span></label>
+                            <input type="email" class="form-control" name="email"  required="" placeholder="you@example.com" value="you@example.com">
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-4 mb-3">
+                            <label for="email">Start Day <span class="text-muted">*</span></label>
+                            <input type="date" class="form-control" name="startDate" required="" value="2020-12-02">
+                        </div>
+                        <div class="col-md-4 mb-3">
+                            <label for="email">Weight<span class="text-muted">*</span></label>
+                            <input type="number" step="0.01" class="form-control" name="weight" required="" value="333">
+                        </div>
+                        <div class="col-md-4 mb-3">
+                            <label for="email">Muscle Mass<span class="text-muted">*</span></label>
+                            <input type="number" step="0.01" class="form-control" name="muscle" required="" value="111">
                         </div>
                     </div>
                     <div class="row">
                        <div class="col-md-12 mb-3">
                             <label for="address">Personal Question<span class="text-muted">*</span></label>
-                            <input type="text" class="form-control" id="personal_question" placeholder="" required="">
+                            <input type="text" class="form-control" name="personal_question" required="" value="1234">
                         </div>
                         <div class="col-md-12 mb-3">
                             <label for="address">Answer<span class="text-muted">*</span></label>
-                            <input type="text" class="form-control" id="answer" placeholder="" required="">
+                            <input type="text" class="form-control" name="answer" required="" value="44321">
                         </div> 
                         <div class="col-md-12 mb-3">
                             <label for="address2">Pincode<span class="text-muted">*</span></label>
-                            <input type="text" class="form-control" id="pincode" placeholder="">
+                            <input type="text" class="form-control" name="pincode" required="" value="1244">
                         </div> 
                         <hr class="mb-4">
                         <button class="btn btn-primary btn-lg btn-block" type="submit">SAVE</button>

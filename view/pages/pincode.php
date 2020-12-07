@@ -14,31 +14,31 @@
                         </div>
                     </div>
                     <div class="row commonbutton ">
-                        <div class="col-md-4">
+                        <div class="col-md-4 col-xs-4">
                             <input type="button" name="" value="7">
                         </div>
-                        <div class="col-md-4">
+                        <div class="col-md-4 col-xs-4">
                             <input type="button" name="" value="8" class="">
                         </div>
-                        <div class="col-md-4">
+                        <div class="col-md-4 col-xs-4">
                             <input type="button" name="" value="9" class="">
                         </div>
-                        <div class="col-md-4">
+                        <div class="col-md-4 col-xs-4">
                             <input type="button" name="" value="4" class="">
                         </div>
-                        <div class="col-md-4">
+                        <div class="col-md-4 col-xs-4">
                             <input type="button" name="" value="5" class="">
                         </div>
-                        <div class="col-md-4">
+                        <div class="col-md-4 col-xs-4">
                             <input type="button" name="" value="6" class="">
                         </div>
-                        <div class="col-md-4">
+                        <div class="col-md-4 col-xs-4">
                             <input type="button" name="" value="1" class="">
                         </div>
-                        <div class="col-md-4">
+                        <div class="col-md-4 col-xs-4">
                             <input type="button" name="" value="2" class="">
                         </div>
-                        <div class="col-md-4">
+                        <div class="col-md-4 col-xs-4">
                             <input type="button" name="" value="3" class="">
                         </div>
                     </div>

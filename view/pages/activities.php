@@ -11,16 +11,9 @@
         </div>
       </div>
       <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
-        <h1 class="h2">Users</h1>
-        <div class="btn-toolbar mb-2 mb-md-0">
-          <div class="btn-group mr-2">
-            <a href="<?php echo $config['base_url'] ?>/controller/route.php?route=add_user" rel="noopener noreferrer">
-              <button type="button" class="btn btn-sm btn-outline-secondary">Add User</button>
-            </a>
-          </div>
-        </div>
+        <h1 class="h2">Activities</h1> 
       </div>
-      <h2>All users</h2>
+      <h2>Select users</h2>
       <div class="table-responsive">
         <table class="table table-striped table-sm">
           <thead>
@@ -50,14 +43,8 @@
                 <td><?php echo $row["muscle"]; ?></td>
                 <td>
                   <div class="btn-group">
-                    <a href="<?php echo $config['base_url']?>/controller/route.php?route=set_workout&id=<?php echo $row["id"]; ?>">
-                      <button type="button" class="btn btn-sm btn-outline-secondary">Set Workout</button>
-                    </a>
-                    <a href="<?php echo $config['base_url']?>/controller/route.php?route=edit_user&id=<?php echo $row["id"]; ?>">
-                      <button type="button" class="btn btn-sm btn-outline-secondary">Edit</button>
-                    </a>
-                    <a href="<?php echo $config['base_url']?>/controller/deluser_post.php?id=<?php echo $row["id"]; ?>">
-                      <button type="button" class="btn btn-sm btn-outline-secondary">Del</button>
+                    <a href="<?php echo $config['base_url']?>/controller/route.php?route=lookup_activity&id=<?php echo $row["id"]; ?>">
+                      <button type="button" class="btn btn-sm btn-outline-secondary">See Activities</button>
                     </a> 
                   </div>
                 </td>
@@ -70,8 +57,7 @@
                 <td colspan="6"> No results</td>
               </tr>
             <?php
-            }
-
+            } 
             $conn->close();
             ?>
           </tbody>
