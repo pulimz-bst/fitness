@@ -7,7 +7,10 @@
         include('./view/pages/pincode.php');
     }else{ 
         include("./view/pages/{$_SESSION['page']}.php");
-    } 
+    }  
 ?>
+
+
+
 
 <?php include('./view/include/_footer.php');?>
