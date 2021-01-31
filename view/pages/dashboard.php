@@ -20,6 +20,7 @@
             <tr>
               <th>#</th>
               <th>Date</th>
+              <th>Name</th>
               <th>Activity</th>
               <th>Time (Min)</th>
               <th>status</th>
@@ -27,7 +28,9 @@
           </thead>
           <tbody>
             <?php
-            $sql = "SELECT * FROM UserActivities WHERE is_deleted = 0  ORDER BY DATE DESC";
+            $sql = "SELECT a.*,u.firstname,u.lastname FROM UserActivities a
+                    LEFT JOIN UserProfile u ON(a.userProfileID = u.id)
+                    WHERE a.is_deleted = 0 and u.is_deleted = 0  ORDER BY a.userProfileID,a.DATE DESC";
             $n = 0;
             $result_ac = $conn->query($sql);
             if ($result_ac->num_rows > 0) {
@@ -35,9 +38,9 @@
             ?>
                 <td><?php echo ++$n; ?></td>
                 <td><?php echo $row["date"]; ?></td>
+                <td><?php echo $row["firstname"]; ?>  <?php echo $row["lastname"]; ?></td>
                 <td><?php echo $row["activity"]; ?></td>
-                <td><?php echo $row["activity"]; ?></td>
-                <td><?php echo $row["time"]; ?></td>
+                <td><?php echo $row["time"]; ?></td> 
                 <td>
                   <div class="btn-group">
                     <?php if ($row["is_done"] == 0) { ?>
@@ -71,6 +74,69 @@
           </tbody>
         </table>
       </div>
+
+      <h2>Overview Weight & Muscle mass</h2> 
+      <div class="table-responsive">
+        <table class="table table-striped table-sm">
+          <thead>
+            <tr>
+              <th>#</th>
+              <th>Name</th>
+              <th>Date</th>
+              <th>Weight</th>
+              <th>WE up/down</th>
+              <th>Muscle mass</th>
+              <th>MA up/down</th> 
+            </tr>
+          </thead>
+          <tbody>
+            <?php
+            $sql = "SELECT a.*,u.firstname,u.lastname FROM UserActivities a
+                    LEFT JOIN UserProfile u ON(a.userProfileID = u.id)
+                    WHERE a.is_deleted = 0 and u.is_deleted = 0 and is_event = 1
+                    ORDER BY a.userProfileID,a.DATE DESC"; 
+            $n = 0;
+            $result_ac = $conn->query($sql);
+            if ($result_ac->num_rows > 0) {
+              while ($row = $result_ac->fetch_assoc()) {
+            ?>
+                <td><?php echo ++$n; ?></td>
+                <td><?php echo $row["firstname"]; ?>  <?php echo $row["lastname"]; ?></td>
+                <td><?php echo $row["date"]; ?></td>
+                <td><?php echo $row["weight"]; ?></td>
+                <td><?php echo check_up_down($row["old_weight"],$row["weight"]); ?></td> 
+                <td><?php echo $row["muscle_mass"]; ?></td> 
+                <td><?php echo check_up_down($row["old_muscle_mass"],$row["muscle_mass"]); ?></td> 
+                </tr>
+              <?php
+              }
+            } else {
+              ?>
+              <tr>
+                <td colspan="5"> No results</td>
+              </tr>
+            <?php
+            }
+            ?>
+          </tbody>
+        </table>
+      </div>
+      
     </main>
   </div>
 </div>
+
+
+<?php 
+
+function check_up_down($old,$new){
+  if($new > $old){
+    return 'ขึ้น';
+  }else if($new < $old){
+    return 'ลง';
+  }else{
+    return 'เท่าเดิม';
+  }
+}
+
+?>

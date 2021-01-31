@@ -23,6 +23,8 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                     'role' => "user",
                     'firstname' => $row['firstname'], 
                     'lastname'  => $row['lastname'],   
+                    'weight'    => $row['weight'],   
+                    'muscle'    => $row['muscle'],   
                 ];
                 $_SESSION['userId'] = $row['id'];
                 $_SESSION['page'] = "user";

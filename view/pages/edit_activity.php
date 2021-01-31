@@ -31,6 +31,10 @@
                                     <label>Time (min)<span class="text-muted">*</span></label>
                                     <input type="number" step="0.01" class="form-control" name="time" required="" value="<?php echo $row['time'] ?>">
                                 </div> 
+                                <div class="col-md-2 mb-3">
+                                    <label>Save the muscles<span class="text-muted"></span></label>
+                                    <input class="form-control" type="checkbox" id="checkboxNoLabel" name="is_event"  value="1" <?php echo ($row['is_event'] == 1)?'checked':'' ?>>
+                                </div>
                             </div>
                              
                             <br>
@@ -54,3 +58,4 @@
         </main>
     </div>
 </div> 
+

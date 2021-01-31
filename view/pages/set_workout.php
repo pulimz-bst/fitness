@@ -36,6 +36,10 @@
                                     <label>Time (min)<span class="text-muted">*</span></label>
                                     <input type="number" step="0.01" class="form-control" name="time[]" required="" value="">
                                 </div>
+                                <div class="col-md-2 mb-3">
+                                    <label>Save the muscles<span class="text-muted"></span></label>
+                                    <input class="form-control" type="checkbox" id="checkboxNoLabel" name="is_event[]" value="1" aria-label="...">
+                                </div>
                                 <div class="col-md-1 mb-3">
                                     <label>&nbsp;</label>
                                     <button type="button" id="add" class="btn btn-success  btn-block">Add</button>
@@ -50,6 +54,10 @@
                                 <div class="col-md-2 mb-3">
                                     <label>Time (min)<span class="text-muted">*</span></label>
                                     <input type="number" step="0.01" class="form-control" name="time[]" value="">
+                                </div>
+                                <div class="col-md-2 mb-3">
+                                    <label>Save the muscles<span class="text-muted"></span></label>
+                                    <input class="form-control" type="checkbox" id="checkboxNoLabel" name="is_event[]" value="1" aria-label="...">
                                 </div>
                                 <div class="col-md-1 mb-3">
                                     <label>&nbsp;</label>

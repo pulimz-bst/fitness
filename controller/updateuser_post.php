@@ -23,5 +23,6 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     } else {
         $conn->close();
         echo "Error: " . $sql . "<br>" . $conn->error;
+        exit;
     }
 }

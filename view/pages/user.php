@@ -6,7 +6,7 @@
             </div>
             <div class="">
                 <form action="#" method="POST">
-                    <?php
+                    <?php 
                     $sql = "SELECT * FROM UserProfile WHERE is_deleted = 0 and id = {$_SESSION['userId']}";
                     $result = $conn->query($sql);
                     if ($result->num_rows > 0) {
@@ -50,13 +50,18 @@
                                                         <td>
                                                             <div class="btn-group">
                                                                 <?php if ($row["is_done"] == 0) { ?>
-                                                                    <a href="<?php echo $config['base_url'] ?>/controller/compelete_post.php?id=<?php echo $row["id"]; ?>">
-                                                                        <button type="button" class="btn btn-sm btn-outline-secondary">Done</button>
-                                                                    </a>
+                                                                    <?php if ($row["is_event"] == 0) { ?>
+                                                                        <a href="<?php echo $config['base_url'] ?>/controller/compelete_post.php?id=<?php echo $row["id"]; ?>">
+                                                                            <button type="button" class="btn btn-sm btn-outline-secondary">Done</button>
+                                                                        </a>
+                                                                    <?php } else {  ?>
+                                                                        <button type="button" class="btn btn-sm btn-outline-secondary" data-toggle="modal" data-target="#exampleModal"  data-id="<?php echo $row["id"]; ?>">Done</button> 
+                                                                    <?php } ?>
                                                                 <?php
 
                                                                 } else {
                                                                 ?>
+
                                                                     <a href="#">
                                                                         <button type="button" disabled class="btn btn-sm btn-outline-secondary">Complete</button>
                                                                     </a>
@@ -104,7 +109,35 @@
 </div>
 
 
-
+<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <form action="<?php echo $config['base_url'] ?>/controller/saveActivity_post.php" method="POST">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Save Activity</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body"> 
+                    <input type="hidden" rclass="form-control" name="id" id="id" value="">
+                        <div class="form-group">
+                            <label for="recipient-name" class="col-form-label">Weight:</label> 
+                            <input type="number" required step="0.01" class="form-control" name="weight" value="">
+                        </div>
+                        <div class="form-group">
+                            <label for="recipient-name" class="col-form-label">Muscle mass:</label>
+                            <input type="number" required step="0.01" class="form-control" name="muscle_mass" value="">
+                        </div> 
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                    <button type="submit" class="btn btn-primary">Save</button>
+                </div>
+            </div>
+        </div>
+    </form>
+</div>
 
 
 <script>
@@ -117,4 +150,14 @@
     function del($this) {
         $($this).closest(".box").remove();
     }
+</script>
+
+
+<script>
+$('#exampleModal').on('show.bs.modal', function (event) {
+  var button = $(event.relatedTarget)  
+  var recipient = button.data('id')   
+  var modal = $(this) 
+  modal.find('#id').val(recipient)
+})
 </script>

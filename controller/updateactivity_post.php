@@ -7,6 +7,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                     date = '{$_POST['date']}',
                     activity  = '{$_POST['activity']}', 
                     time ='{$_POST['time']}'
+                    is_event ='{$_POST['is_event']}'
             WHERE id = '{$_POST['id']}'
          ";
 
@@ -19,5 +20,6 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     } else {
         $conn->close();
         echo "Error: " . $sql . "<br>" . $conn->error;
+        exit;
     }
 }
